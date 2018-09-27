@@ -10,80 +10,28 @@ p1Chaser1.position = [1, 0];
 
 var currentPlayer;
 
-var currentPositions = [
-  ["-3,4", ["", ""]],
-  ["-2,4", ["", ""]],
-  ["-1,4", ["", ""]],
-  ["0,4", ["", ""]],
-  ["1,4", ["", ""]],
-  ["2,4", ["", ""]],
-  ["3,4", ["", ""]],
-  ["-4,3", ["", ""]],
-  ["-3,3", ["", ""]],
-  ["-2,3", ["", ""]],
-  ["-1,3", ["", ""]],
-  ["0,3", ["", ""]],
-  ["1,3", ["", ""]],
-  ["2,3", ["", ""]],
-  ["3,3", ["", ""]],
-  ["4,3", ["", ""]],
-  ["-5,2", ["", ""]],
-  ["-4,2", ["", ""]],
-  ["-3,2", ["", ""]],
-  ["-2,2", ["", ""]],
-  ["-1,2", ["", ""]],
-  ["0,2", ["", ""]],
-  ["1,2", ["", ""]],
-  ["2,2", ["", ""]],
-  ["3,2", ["", ""]],
-  ["4,2", ["", ""]],
-  ["5,2", ["", ""]],
-  ["-6,1", ["", ""]],
-  ["-5,1", ["", ""]],
-  ["-4,1", ["", ""]],
-  ["-3,1", ["", ""]],
-  ["-2,1", ["", ""]],
-  ["-1,1", ["", ""]],
-  ["0,1", ["", ""]],
-  ["1,1", ["", ""]],
-  ["2,1", ["", ""]],
-  ["3,1", ["", ""]],
-  ["4,1", ["", ""]],
-  ["5,1", ["", ""]],
-  ["6,1", ["", ""]],
-  ["-6,0", ["", ""]],
-  ["-5,0", ["", ""]],
-  ["-4,0", ["", ""]],
-  ["-3,0", ["", ""]],
-  ["-2,0", ["", ""]],
-  ["-1,0", ["", ""]],
-  ["0,0", ["", ""]],
-  ["1,0", ["P1C1", p1Chaser1]],
-  ["2,0", ["", ""]],
-  ["3,0", ["", ""]],
-  ["4,0", ["", ""]],
-  ["5,0", ["", ""]],
-  ["6,0", ["", ""]],
-  ["-6,-1", ["", ""]],
-  ["-5,-1", ["", ""]],
-  ["-4,-1", ["", ""]],
-  ["-3,-1", ["", ""]],
-  ["-2,-1", ["", ""]],
-  ["-1,-1", ["", ""]],
-  ["0,-1", ["", ""]],
-  ["1,-1", ["", ""]],
-  ["2,-1", ["", ""]],
-  ["3,-1", ["", ""]],
-  ["4,-1", ["", ""]],
-  ["5,-1", ["", ""]],
-  ["6,-1", ["", ""]]
-];
-
 var possibleRight;
 var possibleLeft;
 var possibleUp;
 var possibleDown;
 var possibleMoves = [possibleRight, possibleLeft, possibleUp, possibleDown];
+
+/*
+window.omload = function(){
+  document.getElementById("0,0").onclick = function() {myFunction()};
+
+function myFunction () {
+  console.log("clicked");
+}
+};
+*/
+
+window.onload = function() {
+  // Set players at starting positions.
+  for (var i = 0; i < currentPositions.length; i++) {
+    document.getElementById(currentPositions[i][0]).innerHTML =
+      currentPositions[i][1][0];
+  }
 
 $("td").click(function() {
   // Remove colour code from previous selection.
@@ -166,6 +114,7 @@ $("td").click(function() {
     }
   }
 });
+};
 
 function getPlayer(object, value) {
   console.log(Object.keys(object).find(key => object[key] === value));
@@ -223,13 +172,7 @@ function setPossibleDown() {
           );
 }
 
-// Set players at starting positions.
-function onload() {
-  for (var i = 0; i < currentPositions.length; i++) {
-    document.getElementById(currentPositions[i][0]).innerHTML =
-      currentPositions[i][1][0];
-  }
-}
+
 
 function testFunctions() {
   //goRight(1);
